@@ -1,0 +1,37 @@
+<% provide(:admin, '') %>
+<% provide(:request, 'active') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+        <h3>Prueba Request</h3>
+        <hr/>
+            <form>
+                <div class="form-group">
+                    <label for="apiKey">Su API Key aquí</label>
+                    <input type="text" id="apiKey" name="apiKey" class="form-control"></input>
+                    <span id="errorApiKey" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="data">Palabras</label>
+                    <input type="text" id="data" name="data" class="form-control"></input>
+                    <small id="dataHelp" class="form-text text-muted">Digite las palabras separadas por una coma y sin espacios.</small>
+                    <small id="dataHelp" class="form-text text-muted">Por ejemplo: hola,parso,mundo,hola,agua,papa,parso</small>
+                    <br/>
+                    <span id="errorData" class="text-danger"></span>
+                </div>
+            </form>
+            <button class="btn btn-warning" id="btnSend" onclick="sendRequest()">Send Request</button>
+            <button class="btn btn-info" id="btnSend" onclick="limpiar()">Limpiar</button>
+        </div>
+        <div class="col-md-4" id="respuestaDiv">
+            <h3>Respuesta</h3>
+            <hr/>
+            <div id="respuesta">
+            </div>
+        </div>
+    </div>
+</div>
+
+<%= javascript_include_tag "requestIns" %>
+

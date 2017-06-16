@@ -1,0 +1,22 @@
+function updateTable(){
+    $.get("/keys.json",function(result) {
+        $('#tablaKeys').bootstrapTable("load",result);
+    });
+}
+<% if @key.errors.count == 0 %>
+    $('#errorCorreo').html("");
+    $('#key_correo').val("");
+    iziToast.success({
+        title: 'OK',
+        message: 'Api key generada Exitosamente',
+    });
+    updateTable();
+
+<% else %>
+    
+    $('#errorCorreo').html("<%= @key.errors.full_messages.first %> ")
+    iziToast.error({
+    title: 'Error',
+    message: 'No se pudo generar una nueva Api Key',
+    });
+<% end %>

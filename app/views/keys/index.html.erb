@@ -1,0 +1,38 @@
+<% provide(:admin, 'active') %>
+<% provide(:request, '') %>
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <h1>API Keys</h1>
+  <%= render 'new', key: @key %>
+
+  <table id="tablaKeys"
+        class="sortable table-bordered" 
+        data-toolbar="#toolbar"
+        data-search="true"
+        data-pagination="true" 
+        data-minimum-count-columns="2"  
+        data-id-field="Id"
+        data-unique-id="Id"
+        data-page-size="10"
+        data-show-footer="false">
+    <thead>
+        <tr>
+          <th  data-sortable="true" data-field="correo">Correo</th>
+          <th  data-field="api_key">Api key</th>
+          <th  data-sortable="true" data-field="cantidadReq">Cantidad Req</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @keys.each do |key| %>
+        <tr>
+          <td><%= key.correo %></td>
+          <td><%= key.api_key %></td>
+          <td><%= key.cantidadReq %></td>
+        </tr>
+      <% end %>    
+    </tbody>
+  </table>
+</div>
+
+<%= javascript_include_tag "keysIns" %>
