@@ -14,3 +14,4 @@ module ApiKeyGenerator
   end
 end
 
+Rails.application.config.assets.initialize_on_precompile = false
